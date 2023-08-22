@@ -30,11 +30,12 @@ from argparse import ArgumentParser
 from os import walk
 
 name = 'certbot_extra_formats'
-version = "0.1.2"
+version = "0.1.3"
 
-def write_cert(app, 
-               certroot="/etc/letsencrypt/live/",
-               verbose=False):
+def write_cert(
+        app, 
+        certroot="/etc/letsencrypt/live/",
+        verbose=False):
     """Combine and write let's encrypt certificates
        compatible with given application.
 
@@ -56,7 +57,9 @@ def write_cert(app,
     try:
         certroot = certroot if certroot.endswith("/") else certroot + "/"
         domains = []
-        for (dirpath, dirnames, filenames) in walk(certroot):
+        for (dirpath,
+             dirnames,
+             filenames) in walk(certroot):
             domains.extend(dirnames)
             break
     except FileNotFoundError as e:
