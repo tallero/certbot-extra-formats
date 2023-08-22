@@ -30,7 +30,7 @@ from argparse import ArgumentParser
 from os import walk
 
 name = 'certbot_extra_formats'
-version = "0.1.3"
+version = "0.1.4"
 
 def write_cert(
         app, 
