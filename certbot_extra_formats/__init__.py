@@ -30,6 +30,7 @@ from argparse import ArgumentParser
 from os import walk
 
 name = 'certbot_extra_formats'
+version = "0.1.2"
 
 def write_cert(app, 
                certroot="/etc/letsencrypt/live/",
