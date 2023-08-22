@@ -3,7 +3,7 @@
 #    certbot_extra_formats
 #
 #    ----------------------------------------------------------------------
-#    Copyright © 2018, 2019, 2020, 2021, 2022, 2023  Pellegrino Prevete
+#    Copyright © 2018,2019,2020,2021,2022,2023  Pellegrino Prevete
 #
 #    All rights reserved
 #    ----------------------------------------------------------------------
@@ -29,7 +29,8 @@ from os.path import join as pjoin
 from argparse import ArgumentParser
 from os import walk
 
-name = 'certbot_extra_formats'
+name = 'certbot-extra-formats'
+version = 0.1.1
 
 def write_cert(app, 
                certroot="/etc/letsencrypt/live/",
@@ -128,6 +129,12 @@ def main():
       default=False,
       help="extended output")
     parser.add_argument(
+      '--version', 
+      dest='version',
+      action='store_true',
+      default=False,
+      help="display version")
+    parser.add_argument(
       'app',
       nargs='*',
       action='store',
@@ -142,6 +149,10 @@ def main():
       default="/etc/letsencrypt/live/",
       help="directory which contains the letsencrypt certificates")
     args = parser.parse_args()
+
+    if args.version:
+        print(version)
+        return
 
     for app in args.app:
         written = write_cert(

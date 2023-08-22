@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="certbot-extra-formats",
-    version="0.1",
+    version="0.1.1",
     author="Pellegrino Prevete",
     author_email="pellegrinoprevete@gmail.com",
     description=("Writes a 'Let's Encrypt' certificate "
